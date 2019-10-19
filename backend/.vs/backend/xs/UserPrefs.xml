@@ -1,0 +1,33 @@
+﻿<Properties StartupConfiguration="{E6B5F70B-48AF-45D9-9793-E7AE99B5F33B}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/TodoListController.cs">
+    <Files>
+      <File FileName="Controllers/WeatherForecastController.cs" Line="33" Column="50" />
+      <File FileName="WeatherForecast.cs" Line="1" Column="1" />
+      <File FileName="Startup.cs" Line="18" Column="52" />
+      <File FileName="Program.cs" Line="1" Column="1" />
+      <File FileName="Controllers/TodoListController.cs" Line="27" Column="1" NotebookId="1" />
+      <File FileName="Models/TodoItem.cs" Line="14" Column="1" NotebookId="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="backend" expanded="True">
+            <Node name="backend" expanded="True">
+              <Node name="Controllers" expanded="True">
+                <Node name="TodoListController.cs" selected="True" />
+              </Node>
+              <Node name="Models" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.backend PreferredExecutionTarget="/Applications/Firefox.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
