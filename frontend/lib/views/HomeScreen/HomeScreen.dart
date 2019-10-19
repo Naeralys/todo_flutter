@@ -13,10 +13,14 @@ class _HomeScreenState extends State<HomeScreen>{
   bool _showAdd = false;
   void setShow(bool state) => setState(() => _showAdd = state);
   List<String> _todos = ["A Simple Todo App", "Some other todo", "Some other stodo", "Some other ttodo", "Some other rodo"];
+  
   void addItem(String todo) {
     _showAdd = false;
     setState(() => _todos.add(todo));
   }
+
+  void removeItem(String todo) =>
+    setState(() => _todos.remove(todo));
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen>{
               itemCount: _todos.length,
               itemBuilder: (context, index) => ListCard(
                 title: _todos[index],
-                onDismissed: () => setState(() => _todos.remove(_todos[index])),
+                onDismissed: () => removeItem(_todos[index]),
               ),
             )
           ),
