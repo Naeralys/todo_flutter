@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:todo/components/List/ListCard.dart';
+import 'package:todo/models/TodoItem.dart';
 import 'package:todo/theme/Colors.dart' as ThemeColor;
 import 'package:todo/views/HomeScreen/components/AddTodoPopup.dart';
+import 'package:todo/services/TodoListService.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen();
@@ -12,15 +14,23 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen>{
   bool _showAdd = false;
   void setShow(bool state) => setState(() => _showAdd = state);
-  List<String> _todos = ["A Simple Todo App", "Some other todo", "Some other stodo", "Some other ttodo", "Some other rodo"];
+  List<TodoItem> _todos = [];
   
-  void addItem(String todo) {
+  void addItem(TodoItem todo) {
     _showAdd = false;
     setState(() => _todos.add(todo));
+    TodoListService().addTodo(todo);
   }
 
-  void removeItem(String todo) =>
+  void removeItem(TodoItem todo) =>
     setState(() => _todos.remove(todo));
+
+  @override
+  void initState() {
+    super.initState();
+    TodoListService().getAllTodos()
+      .then((todos) => setState(() => _todos = todos ));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen>{
             child:ListView.builder(
               itemCount: _todos.length,
               itemBuilder: (context, index) => ListCard(
-                title: _todos[index],
+                item: _todos[index],
                 onDismissed: () => removeItem(_todos[index]),
               ),
             )

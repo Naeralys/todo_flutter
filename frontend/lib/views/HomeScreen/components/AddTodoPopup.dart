@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo/models/TodoItem.dart';
 import 'dart:ui' as ui;
 import 'package:todo/theme/Colors.dart' as ThemeColor;
 
@@ -14,7 +15,7 @@ class _AddTodoPopupState extends State<AddTodoPopup>{
   TextEditingController textController = TextEditingController();
 
   void _addItem() {
-    this.widget.addItem(textController.text);
+    this.widget.addItem(TodoItem(textController.text));
     textController.text = "";
   }
 

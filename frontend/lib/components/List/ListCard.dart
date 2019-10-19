@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:todo/models/TodoItem.dart';
 import 'package:todo/theme/Colors.dart' as ThemeColor;
 
 class ListCard extends StatelessWidget{
-  ListCard({ @required this.title, @required this.onDismissed });
-  final String title;
+  ListCard({ @required this.item, @required this.onDismissed });
+  final TodoItem item;
   final Function onDismissed;
 
   @override
   Widget build(BuildContext context) {
     return Dismissible(
-      key: Key(title),
+      key: Key(item.name),
       onDismissed: (direction) { onDismissed(); },
       child: Center(
         child: Padding(
@@ -30,7 +31,7 @@ class ListCard extends StatelessWidget{
               child: Padding(
                 padding: EdgeInsets.all(25),
                 child: Text(
-                  title,
+                  item.name,
                   style: TextStyle(
                     color: Colors.white, 
                     fontSize: 20, 

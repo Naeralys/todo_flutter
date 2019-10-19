@@ -10,7 +10,7 @@ namespace backend.Controllers
     [Route("api/TodoList")]
     public class TodoListController : ControllerBase
     {
-        private static readonly List<TodoItem> todos = new List<TodoItem>() {new TodoItem("A simple todo")};
+        private static readonly List<TodoItem> todos = new List<TodoItem>() { new TodoItem("A simple todo"), new TodoItem("A simple second todo") };
 
         [HttpGet]
         public List<TodoItem> Get() => todos;
@@ -19,8 +19,24 @@ namespace backend.Controllers
         public TodoItem GetFirst(int index) => todos[index];
 
         [HttpPost]
-        public IActionResult Add(string name) {
-            return Content(name);
+        public void Add([FromBody] string todo) => todos.Add(new TodoItem(todo));
+
+        [HttpDelete("{todo}")]
+        public string Remove(string todo) {
+            TodoItem temp = null;
+            todos.ForEach((TodoItem obj) =>
+            {
+                if(obj.Name == todo)
+                {
+                    temp = obj;
+                }
+            });
+            if (temp != null)
+            {
+                todos.Remove(temp);
+                return temp.Name + " removed";
+            }
+            return "No item found";
         }
     }
 }
