@@ -12,7 +12,12 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen>{
   bool _showAdd = false;
   void setShow(bool state) => setState(() => _showAdd = state);
-  
+  List<String> _todos = ["A Simple Todo App", "Some other todo", "Some other stodo", "Some other ttodo", "Some other rodo"];
+  void addItem(String todo) {
+    _showAdd = false;
+    setState(() => _todos.add(todo));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,17 +26,19 @@ class _HomeScreenState extends State<HomeScreen>{
       decoration: BoxDecoration(gradient: ThemeColor.gradient),
       child: Stack(
         children: <Widget>[
-          Dismissible(
-            key: Key("1"),
-            child: Center(
-              child: ListCard(
-                title: "A Simple Todo App"
-              )
-            ),
+          Container(
+            height: MediaQuery.of(context).size.height,
+            child:ListView.builder(
+              itemCount: _todos.length,
+              itemBuilder: (context, index) => ListCard(
+                title: _todos[index],
+                onDismissed: () => setState(() => _todos.remove(_todos[index])),
+              ),
+            )
           ),
           AddTodoPopup(
             show: _showAdd,
-            setShow: setShow
+            addItem: addItem
           ),
           Positioned(
             bottom: 40,

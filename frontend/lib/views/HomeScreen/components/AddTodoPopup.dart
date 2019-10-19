@@ -3,14 +3,21 @@ import 'dart:ui' as ui;
 import 'package:todo/theme/Colors.dart' as ThemeColor;
 
 class AddTodoPopup extends StatefulWidget {
-  AddTodoPopup({ @required this.show, @required this.setShow});
+  AddTodoPopup({ @required this.show, @required this.addItem});
   final bool show;
-  final Function setShow;
+  final Function addItem;
   @override
   _AddTodoPopupState createState() => _AddTodoPopupState();
 }
 
 class _AddTodoPopupState extends State<AddTodoPopup>{
+  TextEditingController textController = TextEditingController();
+
+  void _addItem() {
+    this.widget.addItem(textController.text);
+    textController.text = "";
+  }
+
   @override
   Widget build(BuildContext context) {
     return Visibility(
@@ -41,12 +48,13 @@ class _AddTodoPopupState extends State<AddTodoPopup>{
                     Padding(
                       padding: EdgeInsets.all(25),
                       child: TextField(
+                        controller: textController,
                         style: TextStyle(color: Colors.white),
                       )
                     ),
                     RaisedButton(
                       child: Text("Add"),
-                      onPressed: () => this.widget.setShow(false),
+                      onPressed: () => _addItem(),
                       color: ThemeColor.secondaryBlue,
                       textColor: Colors.white,
                     )
