@@ -9,9 +9,16 @@ class NetworkService {
     http.get(MAIN_URL + endpoint)
     .then((response) => jsonDecode(response.body)); 
 
-  Future post({String endpoint, String body}) async {
-    http.Response response = await http.post(MAIN_URL + endpoint, body: body);
-    if (response.statusCode == 200) return jsonDecode(response.body);
+  Future post({String endpoint, dynamic body}) async {
+    http.Response response = await http.post(
+      MAIN_URL + endpoint, 
+      headers: { 'Content-Type' : 'application/json' } ,
+      body: jsonEncode(body));
+    if (response.statusCode == 200) return response.body;
      else throw new Exception("Response error: ${response.statusCode}");
   }
+
+   Future delete({String endpoint}) async =>
+    http.delete(MAIN_URL + endpoint)
+    .then((response) => response.body); 
 }

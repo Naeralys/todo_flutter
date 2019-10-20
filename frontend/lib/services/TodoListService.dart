@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:todo/models/TodoItem.dart';
 import 'package:todo/services/NetworkService.dart';
 
@@ -9,7 +7,10 @@ class TodoListService {
   .then((data) => convertToTodoItem(data));
 
   void addTodo(TodoItem todo) =>
-  NetworkService().post(endpoint: 'TodoList', body: jsonEncode(todo));
+  NetworkService().post(endpoint: 'TodoList', body: { "name": todo.name });
+
+  void removeTodo(TodoItem todo) =>
+  NetworkService().delete(endpoint: 'TodoList/${todo.name}');
 
   convertToTodoItem(dynamic data) {
     List<TodoItem> result = [];

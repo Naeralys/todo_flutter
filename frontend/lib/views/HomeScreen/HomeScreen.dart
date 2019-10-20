@@ -22,8 +22,10 @@ class _HomeScreenState extends State<HomeScreen>{
     TodoListService().addTodo(todo);
   }
 
-  void removeItem(TodoItem todo) =>
+  void removeItem(TodoItem todo) {
     setState(() => _todos.remove(todo));
+    TodoListService().removeTodo(todo);
+  }
 
   @override
   void initState() {

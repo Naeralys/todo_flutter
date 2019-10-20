@@ -50,7 +50,10 @@ class _AddTodoPopupState extends State<AddTodoPopup>{
                       padding: EdgeInsets.all(25),
                       child: TextField(
                         controller: textController,
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold
+                        ),
                       )
                     ),
                     RaisedButton(
@@ -58,6 +61,7 @@ class _AddTodoPopupState extends State<AddTodoPopup>{
                       onPressed: () => _addItem(),
                       color: ThemeColor.secondaryBlue,
                       textColor: Colors.white,
+                      
                     )
                   ],
                 )
