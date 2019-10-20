@@ -15,24 +15,24 @@ namespace backend.Controllers
         [HttpGet]
         public List<TodoItem> Get() => todos;
 
-        [HttpGet("{index}")]
-        public TodoItem GetFirst(int index) => todos[index];
+        [HttpGet("{id}")]
+        public TodoItem GetFirst(int id) => todos[id];
 
         [HttpPost]
         public void Add([FromBody] TodoItem todo) => todos.Add(todo);
 
-        [HttpDelete("{todo}")]
-        public string Remove(string todo) {
+        [HttpDelete("{id}")]
+        public string Remove(string id) {
             TodoItem temp = null;
             todos.ForEach((TodoItem obj) =>
             {
-                if(obj.Name == todo)
+                if(obj.Id == id)
                     temp = obj;
             });
             if (temp != null)
             {
                 todos.Remove(temp);
-                return temp.Name + " removed";
+                return temp.Id + " removed";
             }
             return "No item found";
         }

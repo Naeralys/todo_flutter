@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:todo/models/TodoItem.dart';
 import 'dart:ui' as ui;
 import 'package:todo/theme/Colors.dart' as ThemeColor;
+import 'package:uuid/uuid.dart';
 
 class AddTodoPopup extends StatefulWidget {
   AddTodoPopup({ @required this.show, @required this.addItem});
@@ -15,7 +16,7 @@ class _AddTodoPopupState extends State<AddTodoPopup>{
   TextEditingController textController = TextEditingController();
 
   void _addItem() {
-    this.widget.addItem(TodoItem(textController.text));
+    this.widget.addItem(TodoItem(Uuid().v4(), textController.text));
     textController.text = "";
   }
 

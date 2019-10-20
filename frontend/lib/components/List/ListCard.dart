@@ -18,7 +18,6 @@ class ListCard extends StatelessWidget{
           child: Card(
             child: Container(
               width: 300,
-              height: 100,
               decoration: BoxDecoration(
                 color: ThemeColor.cardColor,
                 boxShadow: [BoxShadow(
