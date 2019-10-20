@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
-const MAIN_URL = 'API_ENDPOINT_HERE';
+const MAIN_URL = 'API KEY HERE';
 
 class NetworkService {
   Future get({String endpoint}) async =>

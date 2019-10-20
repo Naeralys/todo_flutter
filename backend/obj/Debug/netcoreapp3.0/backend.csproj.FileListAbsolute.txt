@@ -24,3 +24,4 @@
 /Users/adamlind/Development/Todo/backend/bin/Debug/netcoreapp3.0/System.Web.WebPages.dll
 /Users/adamlind/Development/Todo/backend/bin/Debug/netcoreapp3.0/Microsoft.Web.Infrastructure.dll
 /Users/adamlind/Development/Todo/backend/obj/Debug/netcoreapp3.0/backend.csproj.CopyComplete
+/Users/adamlind/Development/Todo/backend/bin/Debug/netcoreapp3.0/nunit.framework.dll
