@@ -7,14 +7,14 @@ class TodoListService {
   .then((data) => convertToTodoItem(data));
 
   void addTodo(TodoItem todo) =>
-  NetworkService().post(endpoint: 'TodoList', body: { "name": todo.name });
+  NetworkService().post(endpoint: 'TodoList', body: { "id": todo.id, "name": todo.name });
 
   void removeTodo(TodoItem todo) =>
-  NetworkService().delete(endpoint: 'TodoList/${todo.name}');
+  NetworkService().delete(endpoint: 'TodoList/${todo.id}');
 
   convertToTodoItem(dynamic data) {
     List<TodoItem> result = [];
-    data.forEach((todo) => result.add(TodoItem(todo['name'])));
+    data.forEach((todo) => result.add(TodoItem(todo['id'], todo['name'])));
     return result;
   }
 }

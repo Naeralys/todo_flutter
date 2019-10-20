@@ -1,4 +1,5 @@
 class TodoItem {
-  TodoItem(this.name);
+  TodoItem(this.id, this.name);
+  String id;
   String name;
 }

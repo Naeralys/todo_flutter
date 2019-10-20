@@ -1,12 +1,11 @@
 ﻿<Properties StartupConfiguration="{E6B5F70B-48AF-45D9-9793-E7AE99B5F33B}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/TodoListController.cs">
     <Files>
-      <File FileName="Controllers/WeatherForecastController.cs" Line="35" Column="15" />
+      <File FileName="Controllers/WeatherForecastController.cs" Line="22" Column="10" />
       <File FileName="WeatherForecast.cs" />
       <File FileName="Startup.cs" />
       <File FileName="Program.cs" />
-      <File FileName="Controllers/TodoListController.cs" Line="36" Column="14" NotebookId="1" />
-      <File FileName="Models/TodoItem.cs" NotebookId="1" />
+      <File FileName="Controllers/TodoListController.cs" Line="22" Column="42" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
